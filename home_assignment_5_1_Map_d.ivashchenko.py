@@ -9,7 +9,7 @@ def upper_register(x):  # map task 3 upper_register
     return x.upper()
 
 if __name__ == '__main__':
-# map task 1 farengeht
+    # map task 1 farengeht
     temp_cel = [0, 10, 20, 30, 40]
     print('celsius: ', temp_cel)
     temp_far = list(map(farengeht, temp_cel))
@@ -19,12 +19,12 @@ if __name__ == '__main__':
     temp_far_del_5_2 = map(lambda y: y / 5, temp_far)
     print('farengeht/5 v2: ', list(temp_far_del_5_2))
 
-# map task 2 leng
+    # map task 2 leng
     fruits = ['apple', 'banana', 'orange', 'kiwi']
     all_leng = map(leng, fruits)
-    print('leng: ', list(all_leng))
+    print('leng value: ', list(all_leng))
 
-# map task 3 upper_register
+    # map task 3 upper_register
     list_rows = ['hello', 'world', 'python', 'programming']
     upper_list_rows = map(upper_register, list_rows)
     print('high_reg: ', list(upper_list_rows))
