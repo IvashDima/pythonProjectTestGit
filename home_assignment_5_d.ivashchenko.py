@@ -1,44 +1,25 @@
 
-
-# 1 2 3 4 5
-# четное 10
-# не четное 5
-#def calc(x):
-#    if x % 2 == 0:
-#        return
-#new_list = [1, 2, 3, 4, 5]
-#print()
-#print('even: ')
-#print('not even: ')
-def is_even(x):     # filter example
-    return x % 2 == 0
-
-numbers = [1, 2, 3, 4, 5]
-even_numbers = filter(is_even, numbers)
-print('is_even: ', list(even_numbers)) # [2, 4]
-
-
-#def len_less_5(x): # filter task 1
-#    if len(x) < 5:
-#        return x
-
-# filter task 1
-#fruits = ['apple', 'banana', 'orange', 'kiwi']
-#all_leng = map(len_less_5, fruits)
-#print('len_less_5: ', list(all_leng))
+def farengeht (x):      # map task 1 farengeht
+    return (x * 9 / 5) + 32
+def farengeht_del (y):  # map task 1.1 farengeht_del_5
+    return y / 5
+def leng(x):            # map task 2 leng
+    return len(x)
+def upper_register(x):  # map task 3 upper_register
+    return x.upper()
+def len_less_5(x):      # filter task 1
+    if len(x) < 5:
+        return x
+def empty_rows(x):      # filter task 2
+    if x != '':
+        return x
+def without_a(x):       # filter task 3
+    if x[0] != 'a':
+        return x
 
 from functools import reduce
-def multiply(x, y): # reduce example
-    return x * y
-def sum(x, y): # reduce task 1
+def sum(x, y):  # reduce task 1
     return x + y
-
-numbers = [1, 2, 3, 4, 5]
-res_multi = reduce(multiply, numbers)
-res_sum = reduce(sum, numbers)
-print('reduce multiply: ', res_multi) #120
-print('reduce sum: ', res_sum) #120
-
 def biggest(x, y): # reduce task 2
     if x > y:
         return x
@@ -46,35 +27,54 @@ def biggest(x, y): # reduce task 2
         return y
     else:
         return false
+def one_row(x, y):  # reduce task 3
+    return x + ' ' + y
 
-numbers = [23, 12, 56, 34, 78, 9, 67]
-result = reduce(biggest, numbers)
-print('biggest element: ', result)
+if __name__ == '__main__':
+    # map task 1 farengeht
+    temp_cel = [0, 10, 20, 30, 40]
+    print('map task 1: celsius: ', temp_cel)
+    temp_far = list(map(farengeht, temp_cel))
+    print('map task 1: farengeht: ', list(temp_far))
+    temp_far_del_5_1 = map(farengeht_del, temp_far)
+    print('map task 1: farengeht/5 v1: ', list(temp_far_del_5_1))
+    temp_far_del_5_2 = map(lambda y: y / 5, temp_far)
+    print('map task 1: farengeht/5 v2: ', list(temp_far_del_5_2))
 
-def is_positive(num): # without Lambda example
-    return num >= 0
+    # map task 2 leng
+    fruits = ['apple', 'banana', 'orange', 'kiwi']
+    all_leng = map(leng, fruits)
+    print('map task 2: leng value: ', list(all_leng))
 
-numbers = [-1, 2, -3, 4, -5]
-positive_numbers = filter(is_positive, numbers)
-print('without Lambda: ', list(positive_numbers)) # [2, 4]
+    # map task 3 upper_register
+    list_rows = ['hello', 'world', 'python', 'programming']
+    upper_list_rows = map(upper_register, list_rows)
+    print('map task 3: high_reg: ', list(upper_list_rows))
 
-numbers = [-1, 2, -3, 4, -5] # without Lambda example
-positive_numbers = filter(lambda num: num >= 0, numbers)
-print('with Lambda example: ', list(positive_numbers)) # [2, 4]
+    # filter task 1
+    fruits = ['apple', 'banana', 'orange', 'kiwi']
+    all_leng = filter(len_less_5, fruits)
+    print('filter task 1: len_less_5: ', list(all_leng))
 
-# zip
-names = ['Alice', 'Bob', 'Charlie']
-ages = [25, 30, 35]
-people = zip(names, ages)
-print('zip: ', list(people)) # [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
+    # filter task 2
+    non_standart_list = ['hello', '', 'world', 'python', '', 'programming']
+    without_empty = filter(empty_rows, non_standart_list)
+    print('filter task 2: list without empty rows: ', list(without_empty))
 
-# enumerate
-fruits = ['apple', 'banana', 'cherry']
-for index, fruits in enumerate(fruits):
-    print('enumerate: ', index, fruits)
+    # filter task 3
+    fruits_a = ['apple', 'banana', 'orange', 'kiwi', 'grape', 'avocado']
+    without_a_list = filter(without_a, fruits_a)
+    print('filter task 3: list without a: ', list(without_a_list))
 
-# sorted
-numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
-sorted_numbers = sorted(numbers)
-print(sorted_numbers) # [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
-
+    numbers = [1, 2, 3, 4, 5]
+    # reduce task 1
+    res_sum = reduce(sum, numbers)
+    print('reduce task 1: sum: ', res_sum) #15
+    # reduce task 2
+    numbers = [23, 12, 56, 34, 78, 9, 67]
+    result = reduce(biggest, numbers)
+    print('reduce task 2: biggest element: ', result)
+    # reduce task 3
+    list_of_rows = ['hello', 'world', 'python', 'programming']
+    one_row_list = reduce(one_row, list_of_rows)
+    print('reduce task 3: one_row_list: ', one_row_list)
