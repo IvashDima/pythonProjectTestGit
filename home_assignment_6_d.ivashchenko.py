@@ -62,7 +62,7 @@ def city_rating(file_name):
     file = open("task3_output.csv", "w")
     file.write("score_sum," + "avg_score," + "best_city" + "\n")
     # variant 1
-    file.write(str(score_sum) + ", " + str(avg_score) + ", " + str(best_city))
+    file.write(str(score_sum) + "," + str(avg_score) + "," + str(best_city))
     # variant 2
     #file.write('"' + str(score_sum) + '", ' + '"' + str(avg_score) + '", ' + '"' + str(best_city) + '"')
     return file.close()
