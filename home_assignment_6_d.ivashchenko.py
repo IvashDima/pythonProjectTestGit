@@ -137,7 +137,7 @@ def test_get_sublist():
 
 def test_city_rating():
     city_rating("task3_input.csv")
-    result_list = get_result_list("task3_output.csv")
+    result_list = get_city_rating_result("task3_output.csv")
     result = tuple(result_list)
 
     assert result == ("366", "61.0", "Munich")
