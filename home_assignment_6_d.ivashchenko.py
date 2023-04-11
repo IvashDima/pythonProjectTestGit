@@ -60,10 +60,13 @@ def city_rating(file_name):
         if v == max(input_data.values()):
             best_city = k
 #    print('best_city: ', best_city)
-    file = open("task3_output.txt", "w")
+    file = open("task3_output.csv", "w")
     file.write("score_sum," + "avg_score," + "best_city" + "\n")
-    file.write('"' + str(score_sum) + '", ' + '"' + str(avg_score) + '", ' + '"' + str(best_city) + '"')
-#    file.write(str(score_sum) + ', ' + str(avg_score) + ', ' + str(best_city))
+#   line2 = str(score_sum), str(avg_score), best_city
+#    print(line2)
+#    file.write(str(line2))
+    file.write(str(score_sum) + ', ' + str(avg_score) + ', ' + str(best_city))
+#    file.write('"' + str(score_sum) + '", ' + '"' + str(avg_score) + '", ' + '"' + str(best_city) + '"')
     return file.close()
 
 # 4. Вам дается файл task4_input.csv с заголовком name,swimming,chess,guitar и контентом следующего вида:
@@ -115,6 +118,17 @@ def get_result_list(file_name):
         result_list.append(line.strip())
     return result_list
 
+
+def get_city_rating_result(file_name):
+    output = open(file_name)
+
+    # skip the header
+    output.readline()
+
+    result = output.readline().strip().split(",")
+    return tuple(result)
+
+
 def test_get_sublist():
     get_sublist("task2_input.txt")
     result_list = get_result_list("task2_output.txt")
@@ -122,12 +136,14 @@ def test_get_sublist():
 
     assert result_list == [1, 5, 3]
 
+
 def test_city_rating():
     city_rating("task3_input.csv")
-    result_list = get_result_list("task3_output.txt")
+    result_list = get_result_list("task3_output.csv")
     result = tuple(result_list)
 
     assert result == ("366", "61.0", "Munich")
+
 
 def test_not_busy_children():
     not_busy_children("task4_input.csv")
