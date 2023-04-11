@@ -43,7 +43,6 @@ import csv
 def city_rating(file_name):
     file = open(file_name, "r")
     header = file.readline()
-#    print("header: ", header)
     input_data = {}
     for line in file:
         city, score = line.strip().split(",")
@@ -62,11 +61,10 @@ def city_rating(file_name):
 #    print('best_city: ', best_city)
     file = open("task3_output.csv", "w")
     file.write("score_sum," + "avg_score," + "best_city" + "\n")
-#   line2 = str(score_sum), str(avg_score), best_city
-#    print(line2)
-#    file.write(str(line2))
-    file.write(str(score_sum) + ', ' + str(avg_score) + ', ' + str(best_city))
-#    file.write('"' + str(score_sum) + '", ' + '"' + str(avg_score) + '", ' + '"' + str(best_city) + '"')
+    # variant 1
+    file.write(str(score_sum) + ", " + str(avg_score) + ", " + str(best_city))
+    # variant 2
+    #file.write('"' + str(score_sum) + '", ' + '"' + str(avg_score) + '", ' + '"' + str(best_city) + '"')
     return file.close()
 
 # 4. Вам дается файл task4_input.csv с заголовком name,swimming,chess,guitar и контентом следующего вида:
