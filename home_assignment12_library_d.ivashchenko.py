@@ -38,7 +38,6 @@ class Record:
 
     def __str__(self):
         return f"Book: {self.__book}, Person: {self.__student}, State: {self.state}, Date: {self.__date}"
-        # return f"{self.__book} {self.__student} {self.__date}"
 
     def book_info(self):
         return self.__book
@@ -53,16 +52,10 @@ class Log:
     def pop(self, book: Book, student: Student):
         record = Record(book, student, State.out_lib, datetime.datetime.now())
         self.__records.append(record)
-        print("Update Log: ")
-        for i in self.__records:
-            print(i)
 
     def bring(self, book: Book, student: Student):
         record = Record(book, student, State.in_lib, datetime.datetime.now())
         self.__records.append(record)
-        print("Update Log: ")
-        for i in self.__records:
-            print(i)
 
 class Library:
     def __init__(self, list_books: [Book]):
@@ -136,8 +129,8 @@ print("All book in Library STEP3: ")
 for i in library1.info():
     print(i)
 
-# Задание 2: Как вызвать функцию в теле программы, чтобы отобразить Записи из Журнала?
-print("Records in Log: ", library1.log().info_log())
-for x in library1.log():
+# Задание 2: Записи из Журнала
+print("Records in Log: ")
+for i in library1.log():
     print(i)
 
